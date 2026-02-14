@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       try {
-        const res = await fetch("/api/submissions", {
+        const res = await fetch("https://admin.boldbrand.io/api/submissions", {
           method: "POST",
           body: formData
         });
