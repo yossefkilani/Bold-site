@@ -1173,3 +1173,133 @@ html, body {
     grid-template-columns: 1fr !important;
   }
 }
+
+.bb-hero {
+  background: #000;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-bottom: 0;
+}
+
+.bb-hero-inner h1 {
+  font-size: clamp(60px, 10vw, 140px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 50px;
+  color: #d9d9d9;
+  margin: 0;
+}
+
+.bb-breadcrumb {
+  margin-top: 30px;
+  display: inline-flex;
+  gap: 12px;
+  padding: 12px 24px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.bb-breadcrumb a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.bb-breadcrumb a:hover {
+  color: #fff;
+}
+
+/* =========================
+   BOLD CASES GRID (NOIR STYLE)
+========================= */
+
+.bb-cases-section {
+  padding-top: 40px;  
+  background: #000;
+}
+
+.bb-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.bb-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.bb-case {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  display: block;
+}
+
+.bb-case img {
+  width: 100%;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+              filter 0.5s ease;
+}
+
+/* gradient overlay */
+.bb-case::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bb-case-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(20px);
+}
+
+.bb-case-overlay h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* HOVER EFFECT */
+.bb-case:hover img {
+  transform: scale(1.05);
+  filter: blur(2px);
+}
+
+.bb-case:hover::after {
+  opacity: 1;
+}
+
+.bb-case:hover .bb-case-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .bb-grid {
+    grid-template-columns: 1fr;
+  }
+}
