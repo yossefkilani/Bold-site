@@ -309,42 +309,57 @@ document.addEventListener("DOMContentLoaded", function () {
      SUBMIT
   ====================== */
 
-  if (form) {
-    form.addEventListener("submit", async function (e) {
+ /* ======================
+   1️⃣ Upload Files First
+====================== */
 
-      e.preventDefault();
-      if (!validate()) return;
+const uploadedFiles = [];
 
-      const formData = new FormData(form);
+if (fileInput.files && fileInput.files.length > 0) {
 
-      
-      formData.append("project_name", formData.get("brand_name") || "");
-      formData.append("project_description", formData.get("business_description") || "");
-      formData.append("service", serviceInput.value);
+  for (let file of fileInput.files) {
 
-      if (otherInput.value.trim() !== "") {
-        formData.append("other_service", otherInput.value.trim());
-      }
+    const uploadData = new FormData();
+    uploadData.append("file", file);
 
-      try {
-        const res = await fetch("https://admin.boldbrand.io/api/submissions", {
-          method: "POST",
-          body: formData
-        });
-
-        if (!res.ok) {
-          alert("Server error");
-          return;
-        }
-
-        showStep(steps.length - 1);
-
-      } catch (err) {
-        alert("Connection error");
-      }
+    const uploadRes = await fetch("https://admin.boldbrand.io/api/upload", {
+      method: "POST",
+      body: uploadData
     });
+
+    const uploadJson = await uploadRes.json();
+
+    if (uploadJson.success) {
+      uploadedFiles.push(uploadJson.file);
+    }
+  }
+}
+
+/* ======================
+   2️⃣ Add Files To Form
+====================== */
+
+if (uploadedFiles.length > 0) {
+  formData.append("files", JSON.stringify(uploadedFiles));
+}
+
+/* ======================
+   3️⃣ Submit Submission
+====================== */
+
+try {
+  const res = await fetch("https://admin.boldbrand.io/api/submissions", {
+    method: "POST",
+    body: formData
+  });
+
+  if (!res.ok) {
+    alert("Server error");
+    return;
   }
 
-  if (steps.length) showStep(0);
+  showStep(steps.length - 1);
 
-});
+} catch (err) {
+  alert("Connection error");
+}
