@@ -333,6 +333,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const uploadedFiles = [];
 
+        console.log("FILES OBJECT:", fileInput.files);
+        console.log("FILES LENGTH:", fileInput.files ? fileInput.files.length : "NO INPUT");
+
+
         if (fileInput.files && fileInput.files.length > 0) {
           for (let file of fileInput.files) {
 
