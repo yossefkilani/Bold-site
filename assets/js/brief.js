@@ -200,7 +200,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (backBtn) {
     backBtn.addEventListener("click", function () {
-      if (index > 0) showStep(index - 1);
+
+      // إذا أول خطوة → روح للـ Home
+      if (index === 0) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      // غير هيك → رجع خطوة
+      if (index > 0) {
+        showStep(index - 1);
+      }
     });
   }
 
