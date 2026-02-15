@@ -317,7 +317,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const formData = new FormData(form);
 
-      
       formData.append("project_name", formData.get("brand_name") || "");
       formData.append("project_description", formData.get("business_description") || "");
       formData.append("service", serviceInput.value);
@@ -327,6 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       try {
+
         /* ======================
            1️⃣ Upload Files First
         ====================== */
@@ -334,7 +334,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const uploadedFiles = [];
 
         if (fileInput.files && fileInput.files.length > 0) {
-
           for (let file of fileInput.files) {
 
             const uploadData = new FormData();
@@ -365,24 +364,25 @@ document.addEventListener("DOMContentLoaded", function () {
            3️⃣ Submit Submission
         ====================== */
 
-        try {
-          const res = await fetch("https://admin.boldbrand.io/api/submissions", {
-            method: "POST",
-            body: formData
-          });
+        const res = await fetch("https://admin.boldbrand.io/api/submissions", {
+          method: "POST",
+          body: formData
+        });
 
-          if (!res.ok) {
-            alert("Server error");
-            return;
-          }
-
-          showStep(steps.length - 1);
-
-        } catch (err) {
-          alert("Connection error");
+        if (!res.ok) {
+          alert("Server error");
+          return;
         }
+
+        showStep(steps.length - 1);
+
+      } catch (err) {
+        alert("Connection error");
+      }
+
+    });
   }
 
   if (steps.length) showStep(0);
 
-});
+  });
