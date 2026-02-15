@@ -129,11 +129,13 @@ html.lang-ar .links-list .file-item {
   justify-content: center;
   padding: 120px 20px 60px; /* مسافة تحت الهيدر */
   background: #000;
+
 }
 
 .brief-container form {
   width: 100%;
   max-width: 480px;
+  z-index: 3;
 }
 
 /* نعزل كل شيء داخل الفورم */
