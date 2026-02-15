@@ -309,57 +309,80 @@ document.addEventListener("DOMContentLoaded", function () {
      SUBMIT
   ====================== */
 
- /* ======================
-   1️⃣ Upload Files First
-====================== */
+  if (form) {
+    form.addEventListener("submit", async function (e) {
 
-const uploadedFiles = [];
+      e.preventDefault();
+      if (!validate()) return;
 
-if (fileInput.files && fileInput.files.length > 0) {
+      const formData = new FormData(form);
 
-  for (let file of fileInput.files) {
+      
+      formData.append("project_name", formData.get("brand_name") || "");
+      formData.append("project_description", formData.get("business_description") || "");
+      formData.append("service", serviceInput.value);
 
-    const uploadData = new FormData();
-    uploadData.append("file", file);
+      if (otherInput.value.trim() !== "") {
+        formData.append("other_service", otherInput.value.trim());
+      }
 
-    const uploadRes = await fetch("https://admin.boldbrand.io/api/upload", {
-      method: "POST",
-      body: uploadData
-    });
+      try {
+        /* ======================
+           1️⃣ Upload Files First
+        ====================== */
 
-    const uploadJson = await uploadRes.json();
+        const uploadedFiles = [];
 
-    if (uploadJson.success) {
-      uploadedFiles.push(uploadJson.file);
-    }
+        if (fileInput.files && fileInput.files.length > 0) {
+
+          for (let file of fileInput.files) {
+
+            const uploadData = new FormData();
+            uploadData.append("file", file);
+
+            const uploadRes = await fetch("https://admin.boldbrand.io/api/upload", {
+              method: "POST",
+              body: uploadData
+            });
+
+            const uploadJson = await uploadRes.json();
+
+            if (uploadJson.success) {
+              uploadedFiles.push(uploadJson.file);
+            }
+          }
+        }
+
+        /* ======================
+           2️⃣ Add Files To Form
+        ====================== */
+
+        if (uploadedFiles.length > 0) {
+          formData.append("files", JSON.stringify(uploadedFiles));
+        }
+
+        /* ======================
+           3️⃣ Submit Submission
+        ====================== */
+
+        try {
+          const res = await fetch("https://admin.boldbrand.io/api/submissions", {
+            method: "POST",
+            body: formData
+          });
+
+          if (!res.ok) {
+            alert("Server error");
+            return;
+          }
+
+          showStep(steps.length - 1);
+
+        } catch (err) {
+          alert("Connection error");
+        }
   }
-}
 
-/* ======================
-   2️⃣ Add Files To Form
-====================== */
+  if (steps.length) showStep(0);
 
-if (uploadedFiles.length > 0) {
-  formData.append("files", JSON.stringify(uploadedFiles));
-}
-
-/* ======================
-   3️⃣ Submit Submission
-====================== */
-
-try {
-  const res = await fetch("https://admin.boldbrand.io/api/submissions", {
-    method: "POST",
-    body: formData
-  });
-
-  if (!res.ok) {
-    alert("Server error");
-    return;
-  }
-
-  showStep(steps.length - 1);
-
-} catch (err) {
-  alert("Connection error");
-}
+});
