@@ -297,7 +297,7 @@ p {
 .ms-header {
     position: fixed;
     width: 100%;
-    background-color: #000 !important;
+    background-color: transparent !important;
     z-index: 3;
 }
 /* 2.1 Menu */
