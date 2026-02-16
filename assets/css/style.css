@@ -294,11 +294,10 @@ p {
 /**
  * 2. Header
  */
-
 .ms-header {
     position: fixed;
     width: 100%;
-    background-color: black; !important;
+    background-color: #000 !important;
     z-index: 3;
 }
 /* 2.1 Menu */
