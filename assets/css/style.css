@@ -1451,7 +1451,7 @@ html, body {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 966px) {
   .footer-bottom {
     font-size: 5px;
   }
