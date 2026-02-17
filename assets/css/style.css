@@ -1449,6 +1449,7 @@ html, body {
 
 .footer-bottom p {
   margin: 0;
+  font-size: 5px;
 }
 
 .main-footer .row:last-child {
