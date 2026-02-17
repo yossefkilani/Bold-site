@@ -560,13 +560,12 @@ p {
 .ms-main-container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
     opacity: 0;
     background-color: #fff;
 }
 .ms-container {
     width: 100%;
-    height: 100%;
+
     position: relative;
     padding-top: 12em;
 }
