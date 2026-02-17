@@ -279,26 +279,3 @@ function ValidForm() {
         });
     }
 }
-
-/*------------------
-  Smart Header Show/Hide
--------------------*/
-
-let lastScrollTop = 0;
-
-$(window).on("scroll", function () {
-
-    var currentScroll = $(this).scrollTop();
-    var header = $(".ms-header");
-
-    // لما أطلع لفوق
-    if (currentScroll < lastScrollTop) {
-        header.removeClass("nav-hidden");
-    } 
-    // لما أنزل
-    else if (currentScroll > 100) {
-        header.addClass("nav-hidden");
-    }
-
-    lastScrollTop = currentScroll;
-});
