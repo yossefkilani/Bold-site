@@ -1085,13 +1085,6 @@ html, body {
   height: 100%;
 }
 
-.ms-main-container {
-  background: #000 !important;
-  height: 100vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
 /* FIX BROKEN CSS */
 .ms-btn--slider::before {
   background: #000;
@@ -1449,10 +1442,12 @@ p.copy-right-text {
     font-size: 20px;
     text-align: center;
 }
+
 .ms-main-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #000;
 }
 
 .main-footer {
