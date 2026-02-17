@@ -9,7 +9,6 @@
     window.onpageshow = function(event) {
       if (event.persisted) {
           PageTransition();
-            $('.ms-header').removeClass('nav-hidden');
             $('.hamburger').removeClass('is-active');
             $('.ms-nav').removeClass('is-visible');
             $('.ms-header').not('.navbar-white').each(function() {
@@ -277,29 +276,6 @@ function ValidForm() {
                 });
                 return false;
             }
-        });
-
-        /*------------------
-          Smart Header Show/Hide
-        -------------------*/
-
-        let lastScrollTop = 0;
-
-        $(window).on("scroll", function () {
-
-            var currentScroll = $(this).scrollTop();
-            var header = $(".ms-header");
-
-            // لما أطلع لفوق
-            if (currentScroll < lastScrollTop) {
-                header.removeClass("nav-hidden");
-            } 
-            // لما أنزل
-            else if (currentScroll > 100) {
-                header.addClass("nav-hidden");
-            }
-
-            lastScrollTop = currentScroll;
         });
     }
 }
