@@ -1452,7 +1452,7 @@ html, body {
 
 /* Mobile */
 @media (max-width: 966px) {
-  .footer-bottom {
+  .footer-bottom p h2 {
     font-size: 5px;
   }
 }
