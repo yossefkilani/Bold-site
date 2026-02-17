@@ -1449,12 +1449,3 @@ html, body {
 .footer-bottom p {
   margin: 0;
 }
-
-/* Mobile */
-@media (max-width: 768px) {
-  .footer-bottom {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-}
