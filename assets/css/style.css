@@ -1451,7 +1451,7 @@ html, body {
 }
 
 /* Mobile */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .footer-bottom {
     flex-direction: column;
     gap: 10px;
