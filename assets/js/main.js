@@ -114,25 +114,6 @@ function Menu() {
     }
 }
 
-let lastScroll = 0;
-const header = document.querySelector(".ms-header");
-
-window.addEventListener("scroll", () => {
-
-  const currentScroll = window.pageYOffset;
-
-  // إذا المستخدم طالع لفوق
-  if (currentScroll < lastScroll) {
-    header.classList.remove("nav-hidden");
-  } 
-  // إذا نازل لتحت
-  else {
-    header.classList.add("nav-hidden");
-  }
-
-  lastScroll = currentScroll;
-});
-
 /*------------------
     Home Slider
 -------------------*/
@@ -298,3 +279,26 @@ function ValidForm() {
         });
     }
 }
+
+/*------------------
+  Smart Header Show/Hide
+-------------------*/
+
+let lastScrollTop = 0;
+
+$(window).on("scroll", function () {
+
+    var currentScroll = $(this).scrollTop();
+    var header = $(".ms-header");
+
+    // لما أطلع لفوق
+    if (currentScroll < lastScrollTop) {
+        header.removeClass("nav-hidden");
+    } 
+    // لما أنزل
+    else if (currentScroll > 100) {
+        header.addClass("nav-hidden");
+    }
+
+    lastScrollTop = currentScroll;
+});
