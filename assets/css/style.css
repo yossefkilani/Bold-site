@@ -1352,7 +1352,7 @@ html, body {
 }
 
 .bb-case-info h3 {
-    font-size: 20px;
+  font-size: 20px;
   color: #fff;
   margin-bottom: 5px;
 }
@@ -1363,15 +1363,15 @@ html, body {
 }
 
 .bb-case-description p {
-    line-height: 1.5rem;
-    font-size: 1rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
   color: #aaa;
   margin-bottom: 5px;
   max-width: 720px;
 }
 
 .bb-case-gallery {
-  padding: 0px;
+  padding: 15px 15px;
   background: #000;
 }
 
@@ -1379,7 +1379,7 @@ html, body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: auto;
 }
