@@ -1411,7 +1411,6 @@ p.copy-left-text {
     color: white;
     font-size: 12px;
     line-height: 20px;
-    -moz-text-align-last: left;
     text-align-last: left;
 }
 
@@ -1423,7 +1422,6 @@ p.copy-right-text {
     color: white;
     font-size: 12px;
     line-height: 20px;
-    -moz-text-align-last: right;
     text-align-last: right;
 }
 
@@ -1452,8 +1450,3 @@ p.copy-right-text {
     text-align: center;
 }
 
-@media (max-width: 992px) {
- .footer-bottom  {
-    padding: 20px;
-  }
-}
