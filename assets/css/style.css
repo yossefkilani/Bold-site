@@ -835,7 +835,9 @@ p {
  */
 
 footer {
+    position: relative;
     right: 0;
+    bottom: -50px;
     left: 0;
     width: 100%;
     background: #000;
@@ -1083,6 +1085,13 @@ html, body {
   background: #000 !important;
   overscroll-behavior: none;
   height: 100%;
+}
+
+.ms-main-container {
+  background: #000 !important;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* FIX BROKEN CSS */
@@ -1402,8 +1411,6 @@ p.copy-left-text {
     color: white;
     font-size: 12px;
     line-height: 20px;
-    -moz-text-align-last: left;
-    text-align-last: left;
 }
 
 p.copy-left-text a:hover {
@@ -1414,8 +1421,14 @@ p.copy-right-text {
     color: white;
     font-size: 12px;
     line-height: 20px;
-    -moz-text-align-last: right;
-    text-align-last: right;
+}
+
+.copy-left-text {
+    text-align: left;
+}
+
+.copy-right-text {
+    text-align: right;
 }
 
 .footer-top h2 {
@@ -1441,15 +1454,4 @@ p.copy-right-text {
     color: white;
     font-size: 20px;
     text-align: center;
-}
-
-.ms-main-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: #000;
-}
-
-.main-footer {
-  margin-top: auto;
 }
