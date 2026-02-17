@@ -114,6 +114,25 @@ function Menu() {
     }
 }
 
+let lastScroll = 0;
+const header = document.querySelector(".ms-header");
+
+window.addEventListener("scroll", () => {
+
+  const currentScroll = window.pageYOffset;
+
+  // إذا المستخدم طالع لفوق
+  if (currentScroll < lastScroll) {
+    header.classList.remove("nav-hidden");
+  } 
+  // إذا نازل لتحت
+  else {
+    header.classList.add("nav-hidden");
+  }
+
+  lastScroll = currentScroll;
+});
+
 /*------------------
     Home Slider
 -------------------*/
