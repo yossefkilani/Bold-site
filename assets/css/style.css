@@ -1437,8 +1437,6 @@ html, body {
 
 .footer-top h2 a:hover {
   opacity: 0.6;
-  font-size: clamp(28px, 5vw, 42px); /* متجاوب */
-  line-height: 1.1;
 }
 
 .footer-bottom {
@@ -1450,5 +1448,16 @@ html, body {
 }
 
 .footer-bottom p {
+  margin: 0;
+}
+
+.main-footer .row:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+}
+
+.main-footer .row:last-child p {
   margin: 0;
 }
