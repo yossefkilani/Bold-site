@@ -1440,6 +1440,7 @@ html, body {
 }
 
 .footer-bottom {
+  font-size: 10px;  
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
@@ -1448,11 +1449,4 @@ html, body {
 
 .footer-bottom p {
   margin: 0;
-}
-
-/* Mobile */
-@media (max-width: 760px) {
-  .footer-bottom p h2 {
-    font-size: 30%;
-  }
 }
