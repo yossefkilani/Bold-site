@@ -1440,10 +1440,14 @@ html, body {
 }
 
 .footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 9px;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100%;
+}
+
+.footer-bottom p {
+  margin: 0;
 }
 
 /* Mobile */
